@@ -26,13 +26,12 @@ with open(outputpath, 'r', newline='') as outputfile:
 #create greatest increase and decrease with corresponding
 #dates for the entries
 greatestinc = revenue[0]
-greatesetdec = revenue[0]
-greatesetincmonth = date[0]
-greatestdecmonth = date[0]
+greatestdec = revenue[0]
 totalrev = 0
-
-#create loop for the revenue column to determine greatest
-#increase and decrease and determine total revenue
+#total revenue
+for h in revenue:
+    totalrev += int(h)
+#greatest inc/dec and months
 for i in range(len(revenue)):
     if revenue[i] >= greatestinc:
         greatestinc = revenue[i]
@@ -40,10 +39,28 @@ for i in range(len(revenue)):
     elif revenue[i] <= greatestdec:
         greatestdec = revenue[i]
         greatestdecmonth = date[i]
-        
+#average change
+averagechange = round(totalrev / monthrow, 2)
+
+#create text file 
+textoutput = os.path.join('..', 'PyBank', 'budget_summary.txt')
+with open (textoutput, 'w', newline='') as budget:
+    write = csv.writer(budget)
+    write.writerows([
+            ["Financial Analysis for budget_data.csv"],
+            ["-------------------------------------"],
+            ["Total Revenue: $" + str(totalrev)],
+            ["Total Months:" + str(monthrow)],
+            ["Average Revenue Change:", str(averagechange)],
+            ["Greatest Increase in Profit:" + str(greatestincmonth) + "($ " + str(greatestinc) + ")"],
+            ["Greatest Increase in Profit:" + str(greatestdecmonth) + "($ " + str(greatestdec) + ")"]
+    ])
 
 #print summary
 print("Financial Analysis")
 print("--------------------------------")
-print("Total Months :", monthrow)
-
+print("Total Months:", monthrow)
+print("Total Revenue:", str(totalrev))
+print("Average Revenue Change:", str(averagechange))
+print("Greatest Increase in Profit:" + str(greatestincmonth) + "($ " + str(greatestinc) + ")")
+print("Greatest Decrease in Profit:" + str(greatestdecmonth) + "($ " + str(greatestdec) + ")")
