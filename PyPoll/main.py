@@ -9,7 +9,7 @@ totalvote = 0
 
 
 #open csv file and read commands
-with open(electionfile, 'r', newfile = '') as infile:
+with open(electionfile, 'r', newline = '') as infile:
     read = csv.reader(infile, delimiter = ',')
     #skip header rows 
     next(read)
@@ -27,4 +27,9 @@ candidate = []
 numvotes = []
 voteper = []
 
-       
+
+
+print("Election Results")
+print("------------------------")
+print("Total Votes: " + str(totalvote))
+print("------------------------")       
