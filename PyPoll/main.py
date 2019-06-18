@@ -8,9 +8,6 @@ totalcandidates = []
 candidatepercent = [] 
 candidatetotal = []
 
-
-
-
 #open csv file and read commands
 with open(electionfile, 'r', newline = '') as infile:
     read = csv.reader(infile, delimiter = ',')
@@ -51,8 +48,9 @@ for k in range(len(candidatepercent)):
         winnercandidate = candidates[k]
 print("------------------------")  
 print("Winner: ", str(winnercandidate))
-print("------------------------")  
-
+print("------------------------") 
+ 
+print("hello")
         
 #create lists for candidates and vote numbers and percent
 
