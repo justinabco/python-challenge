@@ -50,7 +50,20 @@ print("------------------------")
 print("Winner: ", str(winnercandidate))
 print("------------------------") 
  
-print("hello")
+textoutput = os.path.join('..', 'PyPoll', 'electionresults.txt')
+with open (textoutput, 'w', newline='') as budget:
+    write = csv.writer(budget)
+    write.writerows([
+            ["Election Results"],
+            ["Total Votes: " + str(totalvote)],
+            ["------------------------------"],
+            ["------------------------------"],
+            ["Winner: " + str(winnercandidate)]
+            ["------------------------------"]
+            
+
+    ])
+
         
 #create lists for candidates and vote numbers and percent
 

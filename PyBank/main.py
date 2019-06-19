@@ -51,7 +51,7 @@ with open (textoutput, 'w', newline='') as budget:
             ["-------------------------------------"],
             ["Total Revenue: $" + str(totalrev)],
             ["Total Months:" + str(monthrow)],
-            ["Average Revenue Change:", str(averagechange)],
+            ["Average Revenue Change:" + str(averagechange)],
             ["Greatest Increase in Profit:" + str(greatestincmonth) + "($ " + str(greatestinc) + ")"],
             ["Greatest Increase in Profit:" + str(greatestdecmonth) + "($ " + str(greatestdec) + ")"]
     ])
@@ -59,8 +59,8 @@ with open (textoutput, 'w', newline='') as budget:
 #print summary
 print("Financial Analysis")
 print("--------------------------------")
-print("Total Months:", monthrow)
-print("Total Revenue:", str(totalrev))
-print("Average Revenue Change:", str(averagechange))
+print("Total Months:" + str(monthrow))
+print("Total Revenue:" + str(totalrev))
+print("Average Revenue Change:" + str(averagechange))
 print("Greatest Increase in Profit:" + str(greatestincmonth) + "($ " + str(greatestinc) + ")")
 print("Greatest Decrease in Profit:" + str(greatestdecmonth) + "($ " + str(greatestdec) + ")")
